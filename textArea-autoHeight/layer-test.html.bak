@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=0" />
+    <title>氢协作</title>
+    <style>
+        #textarea {
+            display: block;
+            margin: 0 auto;
+            overflow: hidden;
+            width: 550px;
+            font-size: 14px;
+            height: 18px;
+            line-height: 24px;
+            padding: 2px;
+        }
+        
+        textarea {
+            outline: 0 none;
+            border-color: rgba(82, 168, 236, 0.8);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+    <script>
+	console.log(document.body);
+		document.body=GetMousePosStr;
+		function GetMousePosStr (evnt,ele) 
+			{ 
+				if(!evnt) 
+				{ 
+					evnt = window.event; 
+				} 
+
+				var offsetX = evnt.offsetX ? evnt.offsetX : evnt.layerX; 
+
+				if(evnt.offsetX < ele.offsetWidth / 2) 
+				{ 
+					return 'left'; 
+				} 
+				else 
+				{ 
+					return 'right'; 
+				} 
+			} 
+    </script>
+</body>
+
+</html>

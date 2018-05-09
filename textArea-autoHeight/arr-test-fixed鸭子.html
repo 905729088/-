@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="test.js"></script>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <script>
+        (function() {
+            let arr = [{
+                    serial_no: 're031684421327625'
+                }, {
+                    serial_no: 're031684421327625_rf'
+                }, {
+                    serial_no: 'xd030898832458894'
+                }, {
+                    serial_no: 'xd030898832458894_rf'
+                }, {
+                    serial_no: 'cz020770835643127'
+                }, {
+                    serial_no: 'cz020517780581655'
+                }, {
+                    serial_no: 'xd032989497978112'
+                }, {
+                    serial_no: 'xd120544357305994_rf'
+                }, {
+                    serial_no: 'xd032989497978112_rf'
+                }, {
+                    serial_no: 'xd032125496463832'
+                }, {
+                    serial_no: 'xd04123213936886590'
+                }, {
+                    serial_no: 'xd0419165190865410'
+                }],
+                arr2 = [{
+                        serial_no: 're031684421327625'
+                    }, {
+                        serial_no: 're031684421327625_rf'
+                    }, {
+                        serial_no: 'xd030898832458894'
+                    },
+                    // {serial_no: 'xd030898832458894'},
+                    {
+                        serial_no: 'cz020770835643127'
+                    }, {
+                        serial_no: 'cz020517780581655'
+                    }, {
+                        serial_no: 'xd032989497978112'
+                    }, {
+                        serial_no: 'xd120544357305994_rf'
+                    }, {
+                        serial_no: 'xd032989497978112_rf'
+                    }, {
+                        serial_no: 'xd032125496463832'
+                    }, {
+                        serial_no: 'xd04123213936886590'
+                    }, {
+                        serial_no: 'xd0419165190865410'
+                    }
+                ],
+                data = [
+                    "xd00123123123893", //
+                    "xd00123123123893_rf", //
+                    "sd12312312333233",
+                    "sd12398123123217", //
+                    "sg12398112399932", //
+                    "sg12398112399933",
+                    "sg12398112399932_rf", //
+                    "ns00783213123133",
+                    "ns00783213123132", //
+                    "ns00783213123132_rf", //
+                    "sd12398123123217", //
+                    "ns00783213123132_rf", //
+                    "ns00783213123132_rf" //
+                ];
+
+            const filterSimilarity = (arr_, _rf, serial_no) => {
+                let arr = JSON.parse(JSON.stringify(arr_)),
+                    obj = {},
+                    saveVal = {};
+                arr.forEach((item) => {
+                    let key = item[serial_no].split(_rf).join('');
+                    obj.hasOwnProperty(key) && (saveVal[key] = item[serial_no]);
+                    obj[key] = item[serial_no];
+                });
+                arr = arr.filter((item) => {
+                    for (let o in saveVal) {
+                        if (o === item[serial_no]) {
+                            return false
+                        }
+                        if (saveVal[o] === item[serial_no]) {
+                            return false
+                        }
+                    }
+                    return item
+                });
+                return arr
+            };
+            const filterSimilarityString = (arr_, _rf) => {
+                let arr = JSON.parse(JSON.stringify(arr_)),
+                    obj = {},
+                    saveVal = {};
+                arr.forEach((item) => {
+                    let key = item.split(_rf).join('');
+                    obj.hasOwnProperty(key) && (saveVal[key] = item);
+                    obj[key] = item;
+                });
+                arr = arr.filter((item) => {
+                    for (let o in saveVal) {
+                        if (o === item) {
+                            return false
+                        }
+                        if (saveVal[o] === item) {
+                            return false
+                        }
+                    }
+                    return item
+                });
+                return arr
+            };
+
+            console.log(filterSimilarity(arr, '_rf', 'serial_no'));
+            console.log(filterSimilarity(arr2, '_rf', 'serial_no'));
+            console.log(filterSimilarityString(data, '_rf'));
+
+
+        })();
+    </script>
+</body>
+
+</html>

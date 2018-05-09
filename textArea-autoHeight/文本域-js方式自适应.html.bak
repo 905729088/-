@@ -14,7 +14,7 @@
             height: 18px;
             line-height: 24px;
             padding: 2px;
-            background: red;
+			background:red;
         }
         
         textarea {
@@ -28,7 +28,7 @@
 <body>
     <textarea name="" id="textarea" cols="30" rows="10"></textarea>
     <script>
-        console.log(textarea.offsetWidth);
+		console.log(getComputeStyle(textarea));
         var autoTextarea = function(elem, extra, maxHeight) {
             extra = extra || 0;
             var isFirefox = !!document.getBoxObjectFor || 'mozInnerScreenX' in window,
@@ -54,7 +54,7 @@
                 },
                 minHeight = parseFloat(getStyle('height'));
 
-            elem.style.resize = 'none';
+           elem.style.resize = 'none';
 
             var change = function() {
                 var scrollTop, height,

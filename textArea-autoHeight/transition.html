@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #box {
+            width: 100px;
+            background: red;
+            transition: 10s;
+        }
+        
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            -transition: 10s;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='box'>
+        <div id="box1"></div>
+    </div>
+    <div class="box"></div>
+    <script>
+        let oBox = document.getElementById('box');
+        oBox.onclick = function() {
+            this.style.height = '400px';
+            // box.style.height = '400px';
+        }
+    </script>
+</body>
+
+</html>

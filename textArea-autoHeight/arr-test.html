@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [{
+            serial_no: 're031684421327625'
+        }, {
+            serial_no: 're031684421327625_rf'
+        }, {
+            serial_no: 'xd030898832458894'
+        }, {
+            serial_no: 'cz020770835643127'
+        }, {
+            serial_no: 'cz020517780581655'
+        }, {
+            serial_no: 'xd032989497978112'
+        }, {
+            serial_no: 'xd120544357305994_rf'
+        }, {
+            serial_no: 'xd032989497978112_rf'
+        }, {
+            serial_no: 'xd032125496463832'
+        }, {
+            serial_no: 'xd04123213936886590'
+        }, {
+            serial_no: 'xd0419165190865410'
+        }];
+
+        arr = [{
+                serial_no: 're031684421327625'
+            }, {
+                serial_no: 're031684421327625_rf'
+            }, {
+                serial_no: 'xd030898832458894'
+            },
+            // {serial_no: 'xd030898832458894'},
+            {
+                serial_no: 'cz020770835643127'
+            }, {
+                serial_no: 'cz020517780581655'
+            }, {
+                serial_no: 'xd032989497978112'
+            }, {
+                serial_no: 'xd120544357305994_rf'
+            }, {
+                serial_no: 'xd032989497978112_rf'
+            }, {
+                serial_no: 'xd032125496463832'
+            }, {
+                serial_no: 'xd04123213936886590'
+            }, {
+                serial_no: 'xd0419165190865410'
+            }
+        ];
+        var newArr = [];
+        var objArr = {};
+        var regexp = /_.+/g;
+        for (var i = 0; i < arr.length; i++) {
+            objArr[Object.values(arr[i])] = Object.keys(arr[i]);
+        }
+
+        for (var key in objArr) {
+            var str = String(key)
+            var strArr = key.split(regexp);
+            if (strArr.length > 1 && objArr[strArr[0]] != undefined) {
+                delete objArr[key];
+                delete objArr[strArr[0]];
+            }
+        }
+
+        for (var key in objArr) {
+            var obj = {};
+            obj[objArr[key]] = key;
+            newArr.push(obj);
+        }
+        console.log(newArr);
+    </script>
+</body>
+
+</html>

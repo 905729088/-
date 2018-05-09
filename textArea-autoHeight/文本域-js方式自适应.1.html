@@ -67,7 +67,7 @@
                 if (!isFirefox && !isOpera) {
                     padding = parseInt(getStyle('paddingTop')) + parseInt(getStyle('paddingBottom'));
                 };
-                scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+                // scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 
                 elem.style.height = minHeight + 'px';
                 if (elem.scrollHeight > minHeight) {
@@ -79,9 +79,9 @@
                         style.overflowY = 'hidden';
                     };
                     style.height = height + extra + 'px';
-                    scrollTop += parseInt(style.height) - elem.currHeight;
-                    document.body.scrollTop = scrollTop;
-                    document.documentElement.scrollTop = scrollTop;
+                    //  scrollTop += parseInt(style.height) - elem.currHeight;
+                    //elem.scrollTop = scrollTop;
+                    // elem.scrollTop = scrollTop;
                     elem.currHeight = parseInt(style.height);
                 };
             };
@@ -95,7 +95,7 @@
             text = document.getElementById("textarea");
 
 
-        autoTextarea(text, 0, 0); //
+        autoTextarea(text, 0, 100); //
     </script>
 </body>
 
