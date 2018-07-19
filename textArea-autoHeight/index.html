@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='./Projector.js'></script>
+    <script src='./three.min.js'></script>
+    <script src='./CanvasRenderer.js'></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width:100px;
+            height:100px;
+            border: 1px solid #000;
+        }
+        .box1{
+            position:absolute;
+            transform: translateX(50%);
+            z-index: 9;
+            top:100px;
+            background:red;
+            overflow: auto;
+            overflow-x: auto;
+        }
+        .box2{
+            position: fixed;
+            z-index: 100;
+            background:blue;
+            left: 40px;
+            top:40px;
+        
+            
+        }
+        .box3{
+           position: fixed;
+           z-index: 100;
+            margin-top: 0px;
+            top:0px;
+            left: 40px;
+            width:100px;
+            height:100px;
+            background-color: yellow;        }
+    </style>
+</head>
+<body>
+    <div id='canvas'>
+        <canvas width="1920" height='897' style="width: 1920px; height: 897px;"></canvas>
+    </div>
+    <div class='box1'>
+        <div class="box2">
+
+        </div>
+        <Code>
+            saddas
+            dasdas
+            21312
+        </Code>
+    </div>
+    
+    <script>
+        var name = 'one';
+    var object = {
+    name: 'two',
+
+    getNameFunc: function(){
+    return function(){
+    return this.name;
+    }
+    }
+    }
+
+    console.log(object.getNameFunc()());
+    </script>
+</body>
+</html>
